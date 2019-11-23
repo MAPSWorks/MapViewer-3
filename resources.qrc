@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>mapview.qml</file>
+        <file>target.qml</file>
+        <file>target2.qml</file>
+        <file>target3.qml</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>poi.png</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>
