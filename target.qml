@@ -21,7 +21,8 @@ MapItemGroup {
         sourceItem: Rectangle {
             width: 18; height: 18;
             color: itemGroup.color
-            border.width: 1; border.color: Qt.lighter(color)
+            border.width: 1;
+            border.color: Qt.lighter(color)
             smooth: true
             visible: itemGroup.makeVisible
 //            opacity: 0.7

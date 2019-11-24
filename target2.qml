@@ -8,6 +8,8 @@ MapItemGroup {
     property alias text: labelText.text
     property alias coordinate:  tgtRect.coordinate
     property alias track: area.track
+    property string color: "red"
+    property bool makeVisible: true
     signal targetChanged(string tgtName)
 
     MapQuickItem {
@@ -18,14 +20,16 @@ MapItemGroup {
             smooth: true
             Rectangle {
                 width: 12; height: 2
-                color: "red"
+                color: itemGroup.color
+                visible: itemGroup.makeVisible
                 anchors.centerIn: parent
                 opacity: 1
             }
 
             Rectangle {
                 width: 2; height: 12
-                color: "red"
+                color: itemGroup.color
+                visible: itemGroup.makeVisible
                 anchors.centerIn: parent
             }
         }
