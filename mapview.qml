@@ -132,9 +132,27 @@ Item {
             var newLon = rLon + Math.atan2(Math.sin(kitList[i].heading * Math.PI / 180.0) * Math.sin(d) * Math.cos(rLat),
                                            Math.cos(d) - Math.sin(rLat) * Math.sin(newLat));
 
-
             kitList[i].coordinate.latitude = newLat * 180.0 / Math.PI;
             kitList[i].coordinate.longitude =  newLon * 180.0 / Math.PI;
+
+            // Add a trace
+            if(kitList[i].tracePath.pathLength() < traceLength ) {
+                kitList[i].tracePath.addCoordinate(kitList[i].coordinate)
+            } else {
+                kitList[i].tracePath.removeCoordinate(0)
+                kitList[i].tracePath.addCoordinate(kitList[i].coordinate)
+            }
+
+//            var path = kitToTarget.path;
+
+//            if(targetList.length > 0 && curTarget != -1) {
+//                path[1].latitude = tgtCoordinate.latitude;
+//                path[1].longitude = tgtCoordinate.longitude;
+//                path[0].latitude = kit1234.coordinate.latitude;
+//                path[0].longitude = kit1234.coordinate.longitude;
+//            }
+
+//            kitToTarget.path = path;
         }
 
     }
