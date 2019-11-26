@@ -273,38 +273,98 @@ Item {
                 latitude: 24.2217465
                 longitude: 55.7795257
             }
-            anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
             sourceItem: Item {
-                id: aeroplace
-                anchors.centerIn: parent
-                z: map.z + 3
+                id: s100
+                property string kitColor: "gray"
                 Rectangle {
-                    id: body
+                    z: map.z + 5
                     anchors.centerIn: parent
-                    width: 6; height: 24; radius: 15
-                    color: "brown"
-                    border.color: Qt.lighter(color)
-                    border.width: 1
-                    z: 3
                     Rectangle {
-                        x: -8; y:6
-                        width: 22; height: 3
-                        color: "brown"
-                        border.color: Qt.lighter(color)
-                        border.width: 1
+                        anchors.centerIn: parent
+                        width: 2; height: 15
+                        color: "black"
                     }
 
                     Rectangle {
-                        x: -3; y: 21
-                        width: 12; height: 3
-                        color: "brown"
-                        border.color: Qt.lighter(color)
+                        anchors.centerIn: parent
+                        width: 15; height: 2
+                        color: "black"
+                    }
+
+                    NumberAnimation on rotation {
+                        from: 0
+                        to: 360
+                        duration: 2000
+                        loops: Animation.Infinite
+                    }
+                }
+
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: 10; height: 20; radius: 10
+                    color: s100.kitColor
+                    opacity: 1.0
+                    border.color: "white" //Qt.lighter(color)
+                    border.width: 1
+                    Rectangle {
+                        anchors.top: parent.bottom
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: 4; height: 8;
+                        color: s100.kitColor
+                        border.color: "white" //Qt.lighter(color)
                         border.width: 1
+
+                        Rectangle {
+                            anchors.top: parent.bottom
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            width: 8; height: 4
+                            color: s100.kitColor
+                            border.color: "white" //Qt.lighter(color)
+                            border.width: 1
+                        }
                     }
                 }
             }
-
         }
+
+//        MapQuickItem {
+//            id: kit1234
+//            z: map.z + 3
+//            coordinate {
+//                latitude: 24.2217465
+//                longitude: 55.7795257
+//            }
+//            anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
+//            sourceItem: Item {
+//                id: aeroplace
+//                anchors.centerIn: parent
+//                z: map.z + 3
+//                Rectangle {
+//                    id: body
+//                    anchors.centerIn: parent
+//                    width: 6; height: 24; radius: 15
+//                    color: "brown"
+//                    border.color: Qt.lighter(color)
+//                    border.width: 1
+//                    z: 3
+//                    Rectangle {
+//                        x: -8; y:6
+//                        width: 22; height: 3
+//                        color: "brown"
+//                        border.color: Qt.lighter(color)
+//                        border.width: 1
+//                    }
+
+//                    Rectangle {
+//                        x: -3; y: 21
+//                        width: 12; height: 3
+//                        color: "brown"
+//                        border.color: Qt.lighter(color)
+//                        border.width: 1
+//                    }
+//                }
+//            }
+//        }
 
 //        MapQuickItem {
 //            id: kit1234
